@@ -1,0 +1,79 @@
+PIU 07/05/25
+
+- npm create vite@latest -> react -> javascript
+- Adicionar o arquivo "aula01" no github
+- Dom estrutural das páginas
+- node_modules não vai quando for enviar projetos
+- public: arquivo não muito utilizado
+- src: dentro dele tem a pasta assets e arquivos do projeto
+- main.jsx: importação de bibliotecas do elemento react e react-dom
+     -Componente (tem que ter a letra maiúscula) = <StrictMode> <App /> </StrictMode>
+           - Todo componente vai se comportar como uma função, também vai ter o nome igual ao do arquivo criado. 
+           - Só vai ser importado se for exportado
+           - ClassName é do JSX
+- App.jsx: sintaxe de utilazação do react e abstração de dados
+     -Desfragmentação: quando tem uma teg vazia "<>"
+- Não permite estruturas hierarquicamente iguais
+
+PIU 08/05/2025
+git add .
+git commit -m "atualização aula 2v"
+git push
+
+PIU 21/05/2025 - FUNÇÃO, MAPEAMENTO E FILTRAGEM
+características expecíficas
+
+
+
+PIU 22/05/2025 - SIMULAÇÃO DA PROVA
+- componente de selecionar os personagens
+- componente de visualização do selecionados
+- componente de dark/ligth mode
+
+import { useState } from "react";
+
+export default function TemaGaleria() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [imagemSelecionada, setImagemSelecionada] = useState(null);
+
+  const imagens = [
+    { src: "/harry.jpg", descricao: "Harry Potter, o garoto que sobreviveu" },
+    { src: "/hermione.jpg", descricao: "Hermione Granger, a mente brilhante" },
+  ];
+
+  document.body.style.backgroundColor = darkMode ? "#121212" : "#f9f9f9";
+  document.body.style.color = darkMode ? "#fff" : "#000";
+  document.body.style.transition = "background-color 0.3s, color 0.3s";
+  document.body.style.margin = "0";
+
+  return (
+    <div style={{ padding: "2rem", textAlign: "center", minHeight: "100vh", boxSizing: "border-box" }}>
+      <button onClick={() => setDarkMode(!darkMode)}>
+        Tema: {darkMode ? "Claro" : "Escuro"}
+      </button>
+
+      <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", marginTop: "1rem" }}>
+        {imagens.map(({ src, descricao }, i) => (
+          <img
+            key={i}
+            src={src}
+            alt={Imagem ${i + 1}}
+            onClick={() => setImagemSelecionada({ src, descricao })}
+            style={{ width: "100px", height: "100px", objectFit: "cover", margin: "0.5rem", cursor: "pointer" }}
+          />
+        ))}
+      </div>
+
+      {imagemSelecionada && (
+        <>
+          <img
+            src={imagemSelecionada.src}
+            alt="Selecionada"
+            style={{ width: "90%", maxWidth: "400px", marginTop: "2rem", borderRadius: "8px" }}
+          />
+          <p style={{ marginTop: "1rem", fontStyle: "italic" }}>{imagemSelecionada.descricao}</p>
+        </>
+      )}
+    </div>
+  );
+}

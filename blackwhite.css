@@ -1,0 +1,10 @@
+body.modo-escuro{
+    background-color: black;
+    color: white;
+}
+
+body.modo-claro{
+    background-color: white;
+    color: black;
+}
+

@@ -1,4 +1,4 @@
-body.modo-escuro{
+/* body.modo-escuro{
     background-color: black;
     color: white;
 }
@@ -6,5 +6,32 @@ body.modo-escuro{
 body.modo-claro{
     background-color: white;
     color: black;
+} */
+
+body.modo-claro {
+    background-color: #f0f0f0;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+body.modo-escuro {
+    background-color: #222;
+    color: #f0f0f0;
+    transition: all 0.3s ease;
+  }
+
+
+/* ------------input das cores */
+.tema-constante{
+    margin-bottom: 30px;
 }
 
+button{
+    padding:  10px 15px;
+    cursor: pointer;
+}
+
+input{
+    padding: 8px;
+    margin: 10px 0px;
+}
